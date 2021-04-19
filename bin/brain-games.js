@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import { printGreeting } from "../src/cli.js";
-
+/* eslint-disable no-console */
+import printGreeting from '../src/cli';
 
 console.log('Welcome to the Brain Games!');
 printGreeting();
