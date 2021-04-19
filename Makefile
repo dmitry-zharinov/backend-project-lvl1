@@ -7,5 +7,8 @@ install: # установка
 brain-games: # запуск
 	node bin/brain-games.js
 
+lint: # запуск линтера
+	npx eslint .
+
 publish:
 	npm publish --dry-run
