@@ -1,0 +1,34 @@
+import readlineSync from 'readline-sync'
+
+const ROUNDS_COUNT = 3
+
+export default (game) => {
+  console.log('Welcome to the Brain Games!')
+  const name = readlineSync.question('May I have your name? ')
+  console.log(`Hello, ${name}!`)
+  console.log(game.rules)
+
+  for (let i = 0; i < ROUNDS_COUNT; i += 1) {
+    const [question, correctAnswer] = game.generateRound()
+
+    console.log(`Question: ${question}`)
+    const userAnswer = readlineSync.question('Your answer: ').trim()
+
+    // Любой некорректный ввод считается ошибкой
+    if (userAnswer !== 'yes' && userAnswer !== 'no') {
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`)
+      console.log(`Let's try again, ${name}!`)
+      return
+    }
+
+    if (userAnswer !== correctAnswer) {
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`)
+      console.log(`Let's try again, ${name}!`)
+      return
+    }
+
+    console.log('Correct!')
+  }
+
+  console.log(`Congratulations, ${name}!`)
+}
