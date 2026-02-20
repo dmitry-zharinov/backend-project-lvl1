@@ -1,3 +1,4 @@
+// src/index.js
 import readlineSync from 'readline-sync'
 
 const ROUNDS_COUNT = 3
@@ -13,13 +14,6 @@ export default (game) => {
 
     console.log(`Question: ${question}`)
     const userAnswer = readlineSync.question('Your answer: ').trim()
-
-    // Любой некорректный ввод считается ошибкой
-    if (userAnswer !== 'yes' && userAnswer !== 'no') {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`)
-      console.log(`Let's try again, ${name}!`)
-      return
-    }
 
     if (userAnswer !== correctAnswer) {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`)
